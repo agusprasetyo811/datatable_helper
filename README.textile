@@ -19,13 +19,12 @@ Array Values is the 'AS Query'
 
 example :
 <pre>
-$aCol = array(
-			  'id_product' => 'id_product',
-			  'category' => 'category',
-			  'name' => 'name',
-			  'code' => 'code',
-			  'posting_share' => 'posting_share'
-			  );
+$aCol = array('id_product' => 'id_product',
+              'category' => 'category',
+              'name' => 'name',
+              'code' => 'code',
+              'posting_share' => 'posting_share');
+              
 </pre>
 
 
@@ -35,6 +34,7 @@ Describe table name query
 example :
 <pre>
 $sTable = "c_product";
+
 </pre>
  
 
@@ -45,6 +45,7 @@ Describe Group By query
 example : 
 <pre>
 $sGroupBy = "id_product";
+
 </pre>
 
 h3. $sIndexTable
@@ -53,14 +54,16 @@ Describe index of table in HTML (index = 0)
 example :
 <pre>
 $sIndexTable = 0;
+
 </pre>
 
-h3. param $anyWhere
+h3. $anyWhere
 
 Describe Any confition in WHERE query
 example:
 <pre>
 $anyWhere = "id_product = '$id'"
+
 </pre>
 
 h3. Datatable execute
@@ -70,6 +73,7 @@ Execute datatable server side with :
 
 <pre>
 datatable_excute($aCol, $sTable, $sGroupBy, $sIndexTable, $anyWhere));
+
 </pre>
 
 
@@ -179,6 +183,7 @@ Example :
 	    }
 	]
 }
+
 </pre>
 
 
