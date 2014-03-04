@@ -15,8 +15,9 @@ Describe column table with Assosiative Array
 Array Key is column in use 
 Array Values is the 'AS Query' 
 
+
+
 example :
-<code>
 <pre>
 $aCol = array('id_product' => 'id_product',
 			  'category' => 'category',
@@ -24,7 +25,6 @@ $aCol = array('id_product' => 'id_product',
 			  'code' => 'code',
 			  'posting_share' => 'posting_share');
 </pre>
-</code>
 
 
 h3. $sTable
@@ -193,6 +193,11 @@ Example :
 }
 </pre>
 </code>
+
+
+
+---------
+OMAPSLAB
 
 
  
