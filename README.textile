@@ -59,7 +59,7 @@ $sIndexTable = 0;
 
 h3. $anyWhere
 
-Describe Any confition in WHERE query
+Describe Any condition in WHERE query
 example:
 <pre>
 $anyWhere = "id_product = '$id'"
