@@ -19,11 +19,13 @@ Array Values is the 'AS Query'
 
 example :
 <pre>
-$aCol = array('id_product' => 'id_product',
+$aCol = array(
+			  'id_product' => 'id_product',
 			  'category' => 'category',
 			  'name' => 'name',
 			  'code' => 'code',
-			  'posting_share' => 'posting_share');
+			  'posting_share' => 'posting_share'
+			  );
 </pre>
 
 
@@ -31,11 +33,9 @@ h3. $sTable
 
 Describe table name query
 example :
-<code>
 <pre>
 $sTable = "c_product";
 </pre>
-</code>
  
 
 h3. $sGroupBy
@@ -43,48 +43,41 @@ h3. $sGroupBy
 Describe Group By query
 
 example : 
-<code>
 <pre>
 $sGroupBy = "id_product";
 </pre>
-</code>
 
 h3. $sIndexTable
 
 Describe index of table in HTML (index = 0)
-example : 
-<code>
+example :
 <pre>
 $sIndexTable = 0;
 </pre>
-</code>
 
 h3. param $anyWhere
 
 Describe Any confition in WHERE query
 example:
-<code>
 <pre>
 $anyWhere = "id_product = '$id'"
 </pre>
-</code>
 
 h3. Datatable execute
 
-Execute datatable server side with @datatable_execute($aCol, $sTable, $sGroupBy, $anyWhere);@
-<code>
+Execute datatable server side with :  
+@datatable_execute($aCol, $sTable, $sGroupBy, $anyWhere);@
+
 <pre>
 datatable_excute($aCol, $sTable, $sGroupBy, $sIndexTable, $anyWhere));
 </pre>
-</code>
+
 
 h1. Full Example Implementation
 
 h3. Simpe
 
-<code>
 <pre>
-
 $aCol = array('id_product' => 'id_product',
 			  'category' => 'category',
 			  'name' => 'name',
@@ -97,14 +90,11 @@ $anyWhere = "id_product = '$id'";
 header('Content-Type: application/json');
 exit(datatable_excute($aCol, $sTable, $sGroupBy, $sIndexTable, $anyWhere)));
 			  
-</pre>
-</code> 
+</pre> 
 
 h3. With Join More Table
 
-<code>
 <pre>
-
 $aCol = array('cp.id_product' => 'id_product',
 			  'cc.category' => 'category',
 			  'cp.name' => 'name',
@@ -127,13 +117,11 @@ header('Content-Type: application/json');
 exit(datatable_excute($aCol, $sTable, $sGroupBy, $indexTable, $anyWhere));
 			  
 </pre>
-</code>
 
 h1. Return Data
 
 All will be return json data
-Example : 
-<code>
+Example :
 <pre>
 {
 	"sEcho": 0,
@@ -192,7 +180,6 @@ Example :
 	]
 }
 </pre>
-</code>
 
 
 
