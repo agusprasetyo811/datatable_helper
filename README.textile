@@ -12,8 +12,8 @@ h3. $aCol
 
 Describe column table with Assosiative Array
 
-Array Key is column in use 
-Array Values is the 'AS Query' 
+<b>Array Key</b> is column of Table in use 
+<b>Array Values</b> is the 'AS Query' 
 
 
 
