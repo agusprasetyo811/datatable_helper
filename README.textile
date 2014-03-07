@@ -3,7 +3,13 @@ h1. DataTable Codeigniter Helper
 Server Side Datatable for Codeigniter/ pure PHP Helper 
 
 Datatable soure : http://datatables.net/
-Datatable Server Side Source : http://datatables.net/release-datatables/examples/data_sources/server_side.html 
+Datatable Server Side Source : http://datatables.net/release-datatables/examples/data_sources/server_side.html
+
+Get More info Like this page :
+https://www.facebook.com/omapslab
+
+Follow Twitter
+@omapslab 
 
 
 h1. Using
