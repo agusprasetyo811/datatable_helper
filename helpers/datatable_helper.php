@@ -22,6 +22,7 @@ function datatable_excute($aCol, $sTable, $sGroupBy = NULL, $sIndexTable = NULL,
 	$CI =& get_instance();
 	
 	$sGroupBy = ($sGroupBy != NULL) ? $sGroupBy : '';
+	
 	$aColumns = array_keys($aCol);
 	$aColVal = array_values($aCol);
 	
@@ -74,7 +75,10 @@ function datatable_excute($aCol, $sTable, $sGroupBy = NULL, $sIndexTable = NULL,
 		}
 		
 		for ( $i=0 ; $i<count($aColumns) ; $i++ ) {
-			$sWhere .= " ".$aColumns[$i]." LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ";
+			if (strpos($aColumns[$i],'@') !== false) {
+			} else {
+				$sWhere .= " ".$aColumns[$i]." LIKE '%".mysql_real_escape_string( $_GET['sSearch'] )."%' OR ";
+			}
 		}
 		
 		$sWhere = substr_replace( $sWhere, "", -3 );
@@ -95,13 +99,15 @@ function datatable_excute($aCol, $sTable, $sGroupBy = NULL, $sIndexTable = NULL,
 	
 	#Individual column filtering
 	for ( $i=0 ; $i<count($aColumns) ; $i++ ) {
-		if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '' ) {
-			if ( $sWhere == "" ) {
-				$sWhere = "WHERE ";
-			} else {
-				$sWhere .= " AND ";
-			}
-			$sWhere .= "".$aColumns[$i]." LIKE '%".mysql_real_escape_string($_GET['sSearch_'.$i])."%' ";
+		if (strpos($aColumns[$i],'@') !== false) {} else {
+			if ( isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '' ) {
+				if ( $sWhere == "" ) {
+					$sWhere = "WHERE ";
+				} else {
+					$sWhere .= " AND ";
+				}
+				$sWhere .= "".$aColumns[$i]." LIKE '%".mysql_real_escape_string($_GET['sSearch_'.$i])."%' ";
+			}	
 		}
 	}
 	
@@ -113,6 +119,9 @@ function datatable_excute($aCol, $sTable, $sGroupBy = NULL, $sIndexTable = NULL,
 	
 	# SQL queries Get data to display
 	for($col = 0; $col < count($aCol); $col++) {
+		if (strpos($aColumns[$col],'@') !== false) {
+			$aColumns[$col] = substr($aColumns[$col], 1);
+		} 
 		$getCol[] = $aColumns[$col]." AS ". $aColVal[$col];
 	}
 	
@@ -148,8 +157,7 @@ function datatable_excute($aCol, $sTable, $sGroupBy = NULL, $sIndexTable = NULL,
 			/* General output */
 			$row['no'] = @$get_no;
 			$row[$aColVal[$i]] = @$aRow->$aColVal[$i];
-		}
-			
+		}	
 		$output['aaData'][] = $row;
 	}
 	
