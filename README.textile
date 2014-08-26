@@ -21,13 +21,24 @@ Describe column table with Assosiative Array
 <b>Array Key</b> is column of Table in use 
 <b>Array Values</b> is the 'AS Query' 
 
-
+Special Elimination when WHERE clause used
+<b>Use "@"</b>
 
 example :
 <pre>
 $aCol = array('id_product' => 'id_product',
               'category' => 'category',
               'name' => 'name',
+              'code' => 'code',
+              'posting_share' => 'posting_share');
+              
+</pre>
+
+example with elimination :
+<pre>
+$aCol = array('id_product' => 'id_product',
+              'category' => 'category',
+              '@name' => 'name', /* Elimitane nama cols in WHERE*/
               'code' => 'code',
               'posting_share' => 'posting_share');
               
