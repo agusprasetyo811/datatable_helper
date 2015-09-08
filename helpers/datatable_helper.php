@@ -20,7 +20,7 @@
  */
 function datatable_excute($aCol, $sTable, $sGroupBy = NULL, $sIndexTable = NULL, $anyWhere = NULL) {
 	$CI =& get_instance();
-	
+	 
 	$sGroupBy = ($sGroupBy != NULL) ? $sGroupBy : '';
 	
 	$aColumns = array_keys($aCol);
